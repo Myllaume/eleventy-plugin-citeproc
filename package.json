@@ -1,0 +1,21 @@
+{
+  "name": "eleventy-plugin-citeproc",
+  "version": "1.0.0",
+  "description": "Eleventy filter for Citation Style Language",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "11ty",
+    "eleventy",
+    "CSL",
+    "citeproc"
+  ],
+  "author": "Guillaume Brioudes",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@zettlr/citr": "^1.2.2",
+    "citeproc": "^2.4.62"
+  }
+}
