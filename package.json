@@ -1,7 +1,8 @@
 {
   "name": "eleventy-plugin-citeproc",
-  "version": "1.0.0",
-  "description": "Eleventy filter for Citation Style Language",
+  "version": "0.1.1",
+  "description": "Eleventy filters to process citations and generate bibliographies from Citation Style Language",
+  "author": "Guillaume Brioudes (https://myllaume.fr/)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,10 +10,18 @@
   "keywords": [
     "11ty",
     "eleventy",
+    "eleventy-plugin",
     "CSL",
     "citeproc"
   ],
-  "author": "Guillaume Brioudes",
+  "homepage": "https://github.com/Myllaume/eleventy-plugin-citeproc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Myllaume/eleventy-plugin-citeproc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Myllaume/eleventy-plugin-citeproc/issues"
+  },
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "@zettlr/citr": "^1.2.2",
