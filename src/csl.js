@@ -7,9 +7,9 @@
 /**
  * @typedef Options
  * @type {object}
- * @property {string} cslStylePath
- * @property {string} xmlLocalPath
- * @property {string} bibPath
+ * @property {string} bibliographicStylePath
+ * @property {string} bibliographicLocalizationPath
+ * @property {string} bibliographicDataPath
  */
 
 const fs = require('fs');
@@ -23,23 +23,23 @@ const Citeproc = require('./citeproc');
 
 module.exports = function(options) {
     const {
-        cslStylePath,
-        xmlLocalPath,
-        bibPath
+        bibliographicStylePath,
+        bibliographicLocalizationPath,
+        bibliographicDataPath
     } = options;
 
-    for (const path of [cslStylePath, xmlLocalPath, bibPath]) {
+    for (const path of [bibliographicStylePath, bibliographicLocalizationPath, bibliographicDataPath]) {
         if (fs.existsSync(path) === false) {
-            throw new Error(`File ${cslStylePath} does not exists.`);
+            throw new Error(`File ${bibliographicStylePath} does not exists.`);
         }
     }
 
     let cslStyleFileContent, xmlLocalFileContent, bibFileContent;
 
     try {
-        cslStyleFileContent = fs.readFileSync(cslStylePath, 'utf-8');
-        xmlLocalFileContent = fs.readFileSync(xmlLocalPath, 'utf-8');
-        bibFileContent = fs.readFileSync(bibPath, 'utf-8');
+        cslStyleFileContent = fs.readFileSync(bibliographicStylePath, 'utf-8');
+        xmlLocalFileContent = fs.readFileSync(bibliographicLocalizationPath, 'utf-8');
+        bibFileContent = fs.readFileSync(bibliographicDataPath, 'utf-8');
     } catch (error) {
         throw new Error('Can not read files.');
     }
@@ -47,7 +47,7 @@ module.exports = function(options) {
     try {
         bibFileContent = JSON.parse(bibFileContent);
     } catch (error) {
-        throw new Error(`Can not parse bib file ${bibPath}.`);
+        throw new Error(`Can not parse bib file ${bibliographicDataPath}.`);
     }
 
     const bibliography = new Citeproc(bibFileContent, cslStyleFileContent, xmlLocalFileContent);
