@@ -5,7 +5,7 @@
   "author": "Guillaume Brioudes (https://myllaume.fr/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --timeout 30000"
   },
   "keywords": [
     "11ty",
@@ -26,5 +26,11 @@
   "dependencies": {
     "@zettlr/citr": "^1.2.2",
     "citeproc": "^2.4.62"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "axios": "^0.27.2",
+    "chai-fs": "^2.0.0",
+    "mocha": "^10.0.0"
   }
 }

@@ -115,3 +115,12 @@ The string on `id` property (`goody1977` on below exemple) is the key you need t
 ```
 
 Thanks to [Arthur Perret](https://github.com/infologie) about this documentation.
+
+## Test
+
+```
+npm i
+npm test
+```
+
+See directories `/test` and `/utils`. Add `/utils/**.11ty.js` files to check in `/test/**.js` files content. 
