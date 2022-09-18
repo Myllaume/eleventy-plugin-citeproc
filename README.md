@@ -8,6 +8,12 @@ Bibliographic data and styles use the Citation Style Language (CSL) standard. Th
 
 Process citations and generate bibliographies with filters :
 
+### Sample text
+
+`On writing as a technology of the intellect [@Goody1977, 12].`
+
+See [how to write citations at Pandoc manual](https://pandoc.org/MANUAL.html#citations-in-note-styles).
+
 ### Code
 
 **Liquid, Nunjucks**
