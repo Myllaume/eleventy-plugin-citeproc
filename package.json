@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-citeproc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Eleventy filters to process citations and generate bibliographies from Citation Style Language",
   "author": "Guillaume Brioudes (https://myllaume.fr/)",
   "main": "index.js",
