@@ -12,5 +12,5 @@ module.exports = function (e, customOptions) {
     const csl = getCsl(customOptions);
 
     e.addFilter("references", (text) => references(text, csl));
-    e.addFilter("bibliography", (text) => bibliography(text, csl));
+    e.addFilter("bibliography", (text, options) => bibliography(text, csl, options));
 }

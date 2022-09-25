@@ -36,8 +36,8 @@ describe('Bibliography', () => {
         });
     });
 
-    it('should get HTML with bibliography', () => {
+    it('should get HTML with className', () => {
         const { content } = response.find(({ url }) => url === '/bibliographies/');
-        content.should.to.include('csl-entry');
+        content.should.to.include('class="bib-entry"');
     });
 })

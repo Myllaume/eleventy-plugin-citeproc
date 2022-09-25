@@ -32,7 +32,7 @@ See [how to write citations at Pandoc manual](https://pandoc.org/MANUAL.html#cit
 
 ```js
 module.exports = function(content) {
-    return `<main>${this.references('content')}</main><footer>${this.bibliography(content)}</footer>`
+    return `<main>${this.references(content)}</main><footer>${this.bibliography(content)}</footer>`;
 };
 ```
 
@@ -48,7 +48,7 @@ module.exports = function(content) {
 </footer>
 ```
 
-## Installation
+## Installation
 
 ### Download
 
@@ -59,6 +59,8 @@ npm i eleventy-plugin-citeproc
 ```
 
 ### Configuration
+
+#### Global options
 
 You need three files to get citations and bibliographies :
 
@@ -120,7 +122,33 @@ The string on `id` property (`goody1977` on below exemple) is the key you need t
 ]
 ```
 
-Thanks to [Arthur Perret](https://github.com/infologie) about this documentation.
+#### Local options
+
+##### Custom bibliography entries class name
+
+**Liquid, Nunjucks**
+
+```html
+<footer>
+    {{ content | bibliography({ className: 'custom' }) | safe }}
+</footer>
+```
+
+**11ty.js**
+
+```js
+module.exports = function(content) {
+    return `<main>${this.bibliography(content, { className: 'custom' })}</main>`;
+};
+```
+
+**Output**
+
+```html
+<main>
+    <div class="custom">GOODY, Jack, 1977...</div>
+</main>
+```
 
 ## Test
 
@@ -130,3 +158,7 @@ npm test
 ```
 
 See directories `/test` and `/utils`. Add `/utils/**.11ty.js` files to check in `/test/**.js` files content. 
+
+## Credits
+
+Thanks to [Arthur Perret](https://github.com/infologie) about this documentation.
