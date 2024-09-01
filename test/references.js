@@ -8,32 +8,22 @@ const Eleventy = require("@11ty/eleventy");
 const fetchBibliographyFiles = require('../utils/download');
 
 describe('References', () => {
-    before('fetch citeproc use files', () => {
-        return new Promise(async (resolve) => {
-            await fetchBibliographyFiles();
-            resolve();
-        });
+    before('fetch citeproc use files', async () => {
+        await fetchBibliographyFiles();
     });
 
     let response;
 
-    before('process Eleventy', () => {
-        return new Promise(async (resolve, reject) => {
-            try {
-                let elev = new Eleventy(
-                    path.join(__dirname, '../utils'),
-                    path.join(__dirname, '../temp'), 
-                    {
-                        quietMode: true,
-                        configPath: path.join(__dirname, '../utils/.eleventy.js')
-                    }
-                );
-                response = await elev.toJSON();
-            } catch (error) {
-                reject(error);
+    before('process Eleventy', async () => {
+        let elev = new Eleventy(
+            path.join(__dirname, '../utils'),
+            path.join(__dirname, '../temp'), 
+            {
+                quietMode: true,
+                configPath: path.join(__dirname, '../utils/.eleventy.js')
             }
-            resolve();
-        });
+        );
+        response = await elev.toJSON();
     });
 
     it('should get HTML with reference, without unknown quote keys', () => {
